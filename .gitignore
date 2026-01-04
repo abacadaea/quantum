@@ -3,6 +3,7 @@ deps/
 # python
 *.pyc
 *.pyo
+.ipynb_checkpoints
 venv
 
 # latex
