@@ -12,10 +12,6 @@ class QuantumSimulator:
         self.cbits = [0] * m
         self.state = None # TODO
 
-    def h(self,q):
-        # TODO
-        pass
-
     def x(self,q):
         # TODO
         pass
@@ -24,7 +20,19 @@ class QuantumSimulator:
         # TODO
         pass
 
+    def s(self,q):
+        # TODO
+        pass
+
+    def z(self,q):
+        # TODO
+        pass
+
     def cx(self,qa, qb):
+        # TODO
+        pass
+
+    def h(self,q):
         # TODO
         pass
 
@@ -46,6 +54,10 @@ class QuantumCircuit:
         self.circuit.append(('x',q))
     def t(self, q):
         self.circuit.append(('t',q))
+    def s(self, q):
+        self.circuit.append(('s',q))
+    def z(self, q):
+        self.circuit.append(('z',q))
     def h(self, q):
         self.circuit.append(('h',q))
     def cx(self, qa, qb):
@@ -58,11 +70,15 @@ class QuantumCircuit:
         for _ in range(1000):
             qs = QuantumSimulator(self.n, self.m)
             for (instruction, params) in self.circuit:
-                if instruction == 'h':
+                if instruction == 'x':
                     qs.h(params)
                 if instruction == 't':
                     qs.t(params)
-                if instruction == 'x':
+                if instruction == 's':
+                    qs.t(params)
+                if instruction == 'z':
+                    qs.t(params)
+                if instruction == 'h':
                     qs.x(params)
                 if instruction == 'cx':
                     qs.cx(params[0], params[1])
