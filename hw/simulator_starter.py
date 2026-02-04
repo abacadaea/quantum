@@ -121,3 +121,41 @@ qc.cx(0,1)
 qc.measure(0,0)
 qc.measure(1,1)
 qc.run_circuit()
+
+
+""" 
+### EXTRA CREDIT TESTS ### 
+
+# test CCX
+qc = QuantumCircuit(3,3)
+qc.h(0)
+qc.h(1)
+qc.ccx(0,1,2)
+qc.measure(0,0)
+qc.measure(1,1)
+qc.measure(2,2)
+qc.run_circuit()
+
+# test CCZ
+qc = QuantumCircuit(3,3)
+qc.h(0)
+qc.h(1)
+# H_2, CCZ_{012}, H_2 should be the same as CCX_{012}
+qc.h(2)
+qc.ccz(0,1,2)
+qc.h(2)
+qc.measure(0,0)
+qc.measure(1,1)
+qc.measure(2,2)
+qc.run_circuit()
+
+# test CSWAP
+qc = QuantumCircuit(3,3)
+qc.h(0)
+qc.h(1)
+qc.cswap(0,1,2)
+qc.measure(0,0)
+qc.measure(1,1)
+qc.measure(2,2)
+qc.run_circuit()
+"""
