@@ -71,15 +71,15 @@ class QuantumCircuit:
             qs = QuantumSimulator(self.n, self.m)
             for (instruction, params) in self.circuit:
                 if instruction == 'x':
-                    qs.h(params)
+                    qs.x(params)
                 if instruction == 't':
                     qs.t(params)
                 if instruction == 's':
-                    qs.t(params)
+                    qs.s(params)
                 if instruction == 'z':
-                    qs.t(params)
+                    qs.z(params)
                 if instruction == 'h':
-                    qs.x(params)
+                    qs.h(params)
                 if instruction == 'cx':
                     qs.cx(params[0], params[1])
                 if instruction == 'measure':
@@ -89,12 +89,16 @@ class QuantumCircuit:
 
 
 # test
-results = defaultdict(int)
-qc = QuantumCircuit(2,2)
-qc.h(0)
-qc.h(1)
+qc = QuantumCircuit(1,1)
+qc.x(0)
 qc.measure(0,0)
-qc.measure(1,1)
+qc.run_circuit()
+
+qc = QuantumCircuit(1,1)
+qc.h(0)
+qc.z(0)
+qc.h(0)
+qc.measure(0,0)
 qc.run_circuit()
 
 qc = QuantumCircuit(1,1)
@@ -102,6 +106,13 @@ qc.h(0)
 qc.t(0)
 qc.h(0)
 qc.measure(0,0)
+qc.run_circuit()
+
+qc = QuantumCircuit(2,2)
+qc.h(0)
+qc.h(1)
+qc.measure(0,0)
+qc.measure(1,1)
 qc.run_circuit()
 
 qc = QuantumCircuit(2,2)
