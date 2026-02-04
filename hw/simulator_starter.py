@@ -34,7 +34,7 @@ class QuantumSimulator:
         return "".join([str(c) for c in self.cbits])
 
 
-# Wrapper
+# Creates a quantum circuit that can be simulated many times
 class QuantumCircuit:
     def __init__(self, n, m):
         self.n = n 
