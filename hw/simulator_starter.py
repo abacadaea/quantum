@@ -2,6 +2,7 @@ import random
 import numpy as np
 from collections import defaultdict
 
+# This should track the quantum state as gates are applied and qubits are measured
 class QuantumSimulator:
     # n = number of qubits
     # m = number of classical bits
@@ -9,6 +10,7 @@ class QuantumSimulator:
         self.n = n 
         self.m = m
         self.cbits = [0] * m
+        self.state = None # TODO
 
     def h(self,q):
         # TODO
